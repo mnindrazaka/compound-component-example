@@ -4,17 +4,17 @@ import './App.css'
 
 function App() {
   return (
-    <div>
-      <Search
-        placeholder="Search Contact"
-        keys={['name', 'phone']}
+    <Search.Container>
+      <Search.Filter keys={['name', 'phone']} />
+      <Search.Input placeholder="Search Phone" />
+      <Search.Result
         items={[
           { name: 'aka', phone: '085331247098' },
           { name: 'zaka', phone: '085331247097' },
           { name: 'dirga', phone: '085331247096' }
         ]}
       />
-    </div>
+    </Search.Container>
   )
 }
 

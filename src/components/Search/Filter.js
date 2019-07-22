@@ -1,19 +1,27 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { Consumer } from './context'
 
-export default class SearchFilter extends Component {
+export class Filter extends Component {
   static propTypes = {
     keys: PropTypes.arrayOf(PropTypes.string).isRequired
   }
 
   render() {
     return (
-      <Select onChange={this.props.onChange}>
-        {this.props.keys.map(key => (
-          <option>{key}</option>
-        ))}
-      </Select>
+      <Consumer>
+        {({ searchKey, changeSearchKey }) => (
+          <Select onChange={changeSearchKey} value={searchKey}>
+            <option disabled selected>
+              Select Key
+            </option>
+            {this.props.keys.map(key => (
+              <option>{key}</option>
+            ))}
+          </Select>
+        )}
+      </Consumer>
     )
   }
 }

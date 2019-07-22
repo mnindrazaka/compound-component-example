@@ -1,27 +1,30 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { Consumer } from './context'
 
-export default class SearchInput extends Component {
+export class Input extends Component {
   static propTypes = {
-    value: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired,
     placeholder: PropTypes.string
   }
 
   render() {
     return (
-      <Input
-        type="text"
-        value={this.props.value}
-        onChange={this.props.onChange}
-        placeholder={this.props.placeholder}
-      />
+      <Consumer>
+        {({ searchValue, changeSearchValue }) => (
+          <CustomInput
+            type="text"
+            value={searchValue}
+            onChange={changeSearchValue}
+            placeholder={this.props.placeholder}
+          />
+        )}
+      </Consumer>
     )
   }
 }
 
-const Input = styled.input`
+const CustomInput = styled.input`
   display: block;
   margin: 15px 0px;
   font-size: 15px;
