@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Search from './components/Search'
+import './App.css'
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Search
+        placeholder="Search Contact"
+        keys={['name', 'phone']}
+        items={[
+          { name: 'aka', phone: '085331247098' },
+          { name: 'zaka', phone: '085331247097' },
+          { name: 'dirga', phone: '085331247096' }
+        ]}
+      />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
