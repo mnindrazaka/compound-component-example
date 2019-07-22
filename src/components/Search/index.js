@@ -1,19 +1,20 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import SearchInput from './SearchInput'
-import SearchFilter from './SearchFilter'
-import SearchResult from './SearchResult'
+import Input from './Input'
+import Filter from './Filter'
+import Result from './Result'
 
 export default class Search extends Component {
   static propTypes = {
     keys: PropTypes.arrayOf(PropTypes.string).isRequired,
     items: PropTypes.arrayOf(PropTypes.object).isRequired,
-    placeholder: PropTypes.string
+    inputPlaceholder: PropTypes.string,
+    filterPlaceholder: PropTypes.string
   }
 
   state = {
     searchValue: '',
-    searchKey: this.props.keys[0]
+    searchKey: undefined
   }
 
   changeSearchValue = event => {
@@ -24,25 +25,27 @@ export default class Search extends Component {
     this.setState({ searchKey: event.target.value })
   }
 
-  getResults = () => {
-    return this.state.searchValue.length > 0
-      ? this.props.items.filter(item =>
-          item[this.state.searchKey].includes(this.state.searchValue)
-        )
-      : []
-  }
-
   render() {
     return (
       <div>
-        <SearchFilter keys={this.props.keys} onChange={this.changeSearchKey} />
+        <Filter
+          placeholder={this.props.filterPlaceholder}
+          keys={this.props.keys}
+          value={this.state.searchKey}
+          onChange={this.changeSearchKey}
+        />
 
-        <SearchInput
+        <Input
+          placeholder={this.props.inputPlaceholder}
           value={this.state.searchValue}
           onChange={this.changeSearchValue}
-          placeholder={this.props.placeholder}
         />
-        <SearchResult items={this.getResults()} />
+
+        <Result
+          items={this.props.items}
+          searchKey={this.state.searchKey}
+          searchValue={this.state.searchValue}
+        />
       </div>
     )
   }

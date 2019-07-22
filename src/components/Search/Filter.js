@@ -2,14 +2,19 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-export default class SearchFilter extends Component {
+export default class Filter extends Component {
   static propTypes = {
-    keys: PropTypes.arrayOf(PropTypes.string).isRequired
+    keys: PropTypes.arrayOf(PropTypes.string).isRequired,
+    value: PropTypes.string.isRequired,
+    placeholder: PropTypes.string
   }
 
   render() {
     return (
-      <Select onChange={this.props.onChange}>
+      <Select onChange={this.props.onChange} value={this.props.value}>
+        <option selected disabled>
+          {this.props.placeholder}
+        </option>
         {this.props.keys.map(key => (
           <option>{key}</option>
         ))}

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-export default class SearchInput extends Component {
+export default class Input extends Component {
   static propTypes = {
     value: PropTypes.string.isRequired,
     onChange: PropTypes.func.isRequired,
@@ -11,7 +11,7 @@ export default class SearchInput extends Component {
 
   render() {
     return (
-      <Input
+      <CustomInput
         type="text"
         value={this.props.value}
         onChange={this.props.onChange}
@@ -21,7 +21,7 @@ export default class SearchInput extends Component {
   }
 }
 
-const Input = styled.input`
+const CustomInput = styled.input`
   display: block;
   margin: 15px 0px;
   font-size: 15px;

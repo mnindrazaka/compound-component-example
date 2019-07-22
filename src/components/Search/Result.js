@@ -2,15 +2,24 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-export default class SearchResults extends Component {
+export default class Result extends Component {
   static propTypes = {
-    items: PropTypes.arrayOf(PropTypes.object).isRequired
+    items: PropTypes.arrayOf(PropTypes.object).isRequired,
+    searchValue: PropTypes.string,
+    searchKey: PropTypes.string
+  }
+
+  getResults = () => {
+    const { items, searchValue, searchKey } = this.props
+    return searchValue.length > 0 && searchKey
+      ? items.filter(item => item[searchKey].includes(searchValue))
+      : []
   }
 
   render() {
     return (
       <div>
-        {this.props.items.map(item => (
+        {this.getResults().map(item => (
           <Card>
             <table cellPadding="5px">
               {Object.keys(item).map(key => (
