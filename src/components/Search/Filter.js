@@ -5,21 +5,25 @@ import { Consumer } from './context'
 
 export class Filter extends Component {
   static propTypes = {
-    keys: PropTypes.arrayOf(PropTypes.string).isRequired
+    keys: PropTypes.arrayOf(PropTypes.string).isRequired,
+    placeholder: PropTypes.string
   }
 
   render() {
     return (
       <Consumer>
         {({ searchKey, changeSearchKey }) => (
-          <Select onChange={changeSearchKey} value={searchKey}>
-            <option disabled selected>
-              Select Key
-            </option>
-            {this.props.keys.map(key => (
-              <option>{key}</option>
-            ))}
-          </Select>
+          <label>
+            {this.props.label}
+            <Select onChange={changeSearchKey} value={searchKey}>
+              <option disabled selected>
+                {this.props.placeholder}
+              </option>
+              {this.props.keys.map(key => (
+                <option>{key}</option>
+              ))}
+            </Select>
+          </label>
         )}
       </Consumer>
     )
