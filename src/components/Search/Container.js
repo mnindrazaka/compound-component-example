@@ -4,15 +4,15 @@ import { Provider } from './context'
 export class Container extends Component {
   state = {
     keyword: '',
-    field: undefined
+    currentField: undefined
   }
 
   changeKeyword = event => {
     this.setState({ keyword: event.target.value })
   }
 
-  changeField = event => {
-    this.setState({ field: event.target.value })
+  changeCurrentField = event => {
+    this.setState({ currentField: event.target.value })
   }
 
   render() {
@@ -20,8 +20,8 @@ export class Container extends Component {
       keyword: this.state.keyword,
       changeKeyword: this.changeKeyword,
 
-      field: this.state.field,
-      changeField: this.changeField
+      currentField: this.state.currentField,
+      changeCurrentField: this.changeCurrentField
     }
 
     return <Provider value={providerValue}>{this.props.children}</Provider>

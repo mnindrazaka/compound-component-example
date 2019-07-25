@@ -11,10 +11,10 @@ export class Filter extends Component {
   render() {
     return (
       <Consumer>
-        {({ field, changeField }) => (
+        {({ currentField, changeCurrentField }) => (
           <label>
             {this.props.label}
-            <Select onChange={changeField} value={field}>
+            <Select onChange={changeCurrentField} value={currentField}>
               <option disabled selected>
                 Search By
               </option>
