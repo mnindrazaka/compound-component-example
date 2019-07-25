@@ -12,7 +12,7 @@ export default class Search extends Component {
 
   state = {
     keyword: '',
-    currentField: undefined
+    currentField: ''
   }
 
   changeKeyword = event => {

@@ -11,7 +11,7 @@ export default class Result extends Component {
 
   getResults = () => {
     const { items, keyword, currentField } = this.props
-    return keyword.length > 0 && currentField
+    return keyword && currentField
       ? items.filter(item => item[currentField].includes(keyword))
       : []
   }

@@ -11,7 +11,7 @@ export default class Filter extends Component {
   render() {
     return (
       <Select onChange={this.props.onChange} value={this.props.value}>
-        <option selected disabled>
+        <option disabled value="">
           Search By
         </option>
         {this.props.fields.map(field => (
