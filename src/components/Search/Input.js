@@ -5,8 +5,7 @@ import styled from 'styled-components'
 export default class Input extends Component {
   static propTypes = {
     value: PropTypes.string.isRequired,
-    onChange: PropTypes.func.isRequired,
-    placeholder: PropTypes.string
+    onChange: PropTypes.func.isRequired
   }
 
   render() {
@@ -15,7 +14,7 @@ export default class Input extends Component {
         type="text"
         value={this.props.value}
         onChange={this.props.onChange}
-        placeholder={this.props.placeholder}
+        placeholder="Search Something"
       />
     )
   }

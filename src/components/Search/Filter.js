@@ -5,15 +5,14 @@ import styled from 'styled-components'
 export default class Filter extends Component {
   static propTypes = {
     keys: PropTypes.arrayOf(PropTypes.string).isRequired,
-    value: PropTypes.string.isRequired,
-    placeholder: PropTypes.string
+    value: PropTypes.string.isRequired
   }
 
   render() {
     return (
       <Select onChange={this.props.onChange} value={this.props.value}>
         <option selected disabled>
-          {this.props.placeholder}
+          Search By
         </option>
         {this.props.keys.map(key => (
           <option>{key}</option>

@@ -6,8 +6,6 @@ function App() {
   return (
     <div>
       <Search
-        inputPlaceholder="Search Contact"
-        filterPlaceholder="Search By"
         keys={['name', 'phone']}
         items={[
           { name: 'aka', phone: '085331247098' },
