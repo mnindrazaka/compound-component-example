@@ -12,15 +12,15 @@ export default class Search extends Component {
 
   state = {
     keyword: '',
-    field: undefined
+    currentField: undefined
   }
 
   changeKeyword = event => {
     this.setState({ keyword: event.target.value })
   }
 
-  changeField = event => {
-    this.setState({ field: event.target.value })
+  changeCurrentField = event => {
+    this.setState({ currentField: event.target.value })
   }
 
   render() {
@@ -28,15 +28,15 @@ export default class Search extends Component {
       <div>
         <Filter
           fields={this.props.fields}
-          value={this.state.field}
-          onChange={this.changeField}
+          value={this.state.currentField}
+          onChange={this.changeCurrentField}
         />
 
         <Input value={this.state.keyword} onChange={this.changeKeyword} />
 
         <Result
           items={this.props.items}
-          field={this.state.field}
+          currentField={this.state.currentField}
           keyword={this.state.keyword}
         />
       </div>

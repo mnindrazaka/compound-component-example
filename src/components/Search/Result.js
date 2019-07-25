@@ -6,13 +6,13 @@ export default class Result extends Component {
   static propTypes = {
     items: PropTypes.arrayOf(PropTypes.object).isRequired,
     keyword: PropTypes.string,
-    field: PropTypes.string
+    currentField: PropTypes.string
   }
 
   getResults = () => {
-    const { items, keyword, field } = this.props
-    return keyword.length > 0 && field
-      ? items.filter(item => item[field].includes(keyword))
+    const { items, keyword, currentField } = this.props
+    return keyword.length > 0 && currentField
+      ? items.filter(item => item[currentField].includes(keyword))
       : []
   }
 
