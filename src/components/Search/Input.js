@@ -6,11 +6,11 @@ export class Input extends Component {
   render() {
     return (
       <Consumer>
-        {({ searchValue, changeSearchValue }) => (
+        {({ keyword, changeKeyword }) => (
           <CustomInput
             type="text"
-            value={searchValue}
-            onChange={changeSearchValue}
+            value={keyword}
+            onChange={changeKeyword}
             placeholder="Search Something"
           />
         )}

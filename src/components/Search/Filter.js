@@ -5,21 +5,21 @@ import { Consumer } from './context'
 
 export class Filter extends Component {
   static propTypes = {
-    keys: PropTypes.arrayOf(PropTypes.string).isRequired
+    fields: PropTypes.arrayOf(PropTypes.string).isRequired
   }
 
   render() {
     return (
       <Consumer>
-        {({ searchKey, changeSearchKey }) => (
+        {({ field, changeField }) => (
           <label>
             {this.props.label}
-            <Select onChange={changeSearchKey} value={searchKey}>
+            <Select onChange={changeField} value={field}>
               <option disabled selected>
                 Search By
               </option>
-              {this.props.keys.map(key => (
-                <option>{key}</option>
+              {this.props.fields.map(field => (
+                <option>{field}</option>
               ))}
             </Select>
           </label>

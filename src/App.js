@@ -5,7 +5,7 @@ import './App.css'
 function App() {
   return (
     <Search.Container>
-      <Search.Filter keys={['name', 'phone']} />
+      <Search.Filter fields={['name', 'phone']} />
       <Search.Input />
       <Search.Result
         items={[

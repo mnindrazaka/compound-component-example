@@ -3,25 +3,25 @@ import { Provider } from './context'
 
 export class Container extends Component {
   state = {
-    searchValue: '',
-    searchKey: undefined
+    keyword: '',
+    field: undefined
   }
 
-  changeSearchValue = event => {
-    this.setState({ searchValue: event.target.value })
+  changeKeyword = event => {
+    this.setState({ keyword: event.target.value })
   }
 
-  changeSearchKey = event => {
-    this.setState({ searchKey: event.target.value })
+  changeField = event => {
+    this.setState({ field: event.target.value })
   }
 
   render() {
     const providerValue = {
-      searchValue: this.state.searchValue,
-      changeSearchValue: this.changeSearchValue,
+      keyword: this.state.keyword,
+      changeKeyword: this.changeKeyword,
 
-      searchKey: this.state.searchKey,
-      changeSearchKey: this.changeSearchKey
+      field: this.state.field,
+      changeField: this.changeField
     }
 
     return <Provider value={providerValue}>{this.props.children}</Provider>

@@ -8,18 +8,18 @@ export class Result extends Component {
     items: PropTypes.arrayOf(PropTypes.object)
   }
 
-  getResults = (searchValue, searchKey) => {
-    return searchValue.length > 0 && searchKey
-      ? this.props.items.filter(item => item[searchKey].includes(searchValue))
+  getResults = (keyword, field) => {
+    return keyword.length > 0 && field
+      ? this.props.items.filter(item => item[field].includes(keyword))
       : []
   }
 
   render() {
     return (
       <Consumer>
-        {({ searchValue, searchKey }) => (
+        {({ keyword, field }) => (
           <div>
-            {this.getResults(searchValue, searchKey).map(item => (
+            {this.getResults(keyword, field).map(item => (
               <Card>
                 <table cellPadding="5px">
                   {Object.keys(item).map(key => (
