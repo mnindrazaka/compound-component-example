@@ -18,7 +18,7 @@ export class Result extends Component {
     return (
       <Consumer>
         {({ keyword, currentField }) => (
-          <div>
+          <>
             {this.getResults(keyword, currentField).map(item => (
               <Card>
                 <table cellPadding="5px">
@@ -33,7 +33,7 @@ export class Result extends Component {
                 </table>
               </Card>
             ))}
-          </div>
+          </>
         )}
       </Consumer>
     )

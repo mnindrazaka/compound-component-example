@@ -12,17 +12,14 @@ export class Filter extends Component {
     return (
       <Consumer>
         {({ currentField, changeCurrentField }) => (
-          <label>
-            {this.props.label}
-            <Select onChange={changeCurrentField} value={currentField}>
-              <option disabled value="">
-                Search By
-              </option>
-              {this.props.fields.map(field => (
-                <option>{field}</option>
-              ))}
-            </Select>
-          </label>
+          <Select onChange={changeCurrentField} value={currentField}>
+            <option disabled value="">
+              Search By
+            </option>
+            {this.props.fields.map(field => (
+              <option>{field}</option>
+            ))}
+          </Select>
         )}
       </Consumer>
     )
