@@ -18,7 +18,7 @@ export default class Result extends Component {
 
   render() {
     return (
-      <div>
+      <>
         {this.getResults().map(item => (
           <Card>
             <table cellPadding="5px">
@@ -33,7 +33,7 @@ export default class Result extends Component {
             </table>
           </Card>
         ))}
-      </div>
+      </>
     )
   }
 }

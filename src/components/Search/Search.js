@@ -25,7 +25,7 @@ export default class Search extends Component {
 
   render() {
     return (
-      <div>
+      <>
         <Filter
           fields={this.props.fields}
           value={this.state.currentField}
@@ -39,7 +39,7 @@ export default class Search extends Component {
           currentField={this.state.currentField}
           keyword={this.state.keyword}
         />
-      </div>
+      </>
     )
   }
 }

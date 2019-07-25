@@ -4,7 +4,7 @@ import './App.css'
 
 function App() {
   return (
-    <div>
+    <>
       <Search
         fields={['name', 'phone']}
         items={[
@@ -13,7 +13,7 @@ function App() {
           { name: 'nindra', phone: '085331247096' }
         ]}
       />
-    </div>
+    </>
   )
 }
 
