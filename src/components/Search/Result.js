@@ -5,14 +5,14 @@ import styled from 'styled-components'
 export default class Result extends Component {
   static propTypes = {
     items: PropTypes.arrayOf(PropTypes.object).isRequired,
-    searchValue: PropTypes.string,
-    searchKey: PropTypes.string
+    keyword: PropTypes.string,
+    field: PropTypes.string
   }
 
   getResults = () => {
-    const { items, searchValue, searchKey } = this.props
-    return searchValue.length > 0 && searchKey
-      ? items.filter(item => item[searchKey].includes(searchValue))
+    const { items, keyword, field } = this.props
+    return keyword.length > 0 && field
+      ? items.filter(item => item[field].includes(keyword))
       : []
   }
 

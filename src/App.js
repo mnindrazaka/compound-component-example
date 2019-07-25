@@ -6,11 +6,11 @@ function App() {
   return (
     <div>
       <Search
-        keys={['name', 'phone']}
+        fields={['name', 'phone']}
         items={[
           { name: 'aka', phone: '085331247098' },
           { name: 'zaka', phone: '085331247097' },
-          { name: 'dirga', phone: '085331247096' }
+          { name: 'nindra', phone: '085331247096' }
         ]}
       />
     </div>

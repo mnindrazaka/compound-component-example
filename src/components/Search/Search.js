@@ -6,41 +6,38 @@ import Result from './Result'
 
 export default class Search extends Component {
   static propTypes = {
-    keys: PropTypes.arrayOf(PropTypes.string).isRequired,
+    fields: PropTypes.arrayOf(PropTypes.string).isRequired,
     items: PropTypes.arrayOf(PropTypes.object).isRequired
   }
 
   state = {
-    searchValue: '',
-    searchKey: undefined
+    keyword: '',
+    field: undefined
   }
 
-  changeSearchValue = event => {
-    this.setState({ searchValue: event.target.value })
+  changeKeyword = event => {
+    this.setState({ keyword: event.target.value })
   }
 
-  changeSearchKey = event => {
-    this.setState({ searchKey: event.target.value })
+  changeField = event => {
+    this.setState({ field: event.target.value })
   }
 
   render() {
     return (
       <div>
         <Filter
-          keys={this.props.keys}
-          value={this.state.searchKey}
-          onChange={this.changeSearchKey}
+          fields={this.props.fields}
+          value={this.state.field}
+          onChange={this.changeField}
         />
 
-        <Input
-          value={this.state.searchValue}
-          onChange={this.changeSearchValue}
-        />
+        <Input value={this.state.keyword} onChange={this.changeKeyword} />
 
         <Result
           items={this.props.items}
-          searchKey={this.state.searchKey}
-          searchValue={this.state.searchValue}
+          field={this.state.field}
+          keyword={this.state.keyword}
         />
       </div>
     )
