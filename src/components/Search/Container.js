@@ -4,7 +4,7 @@ import { Provider } from './context'
 export class Container extends Component {
   state = {
     keyword: '',
-    currentField: undefined
+    currentField: ''
   }
 
   changeKeyword = event => {

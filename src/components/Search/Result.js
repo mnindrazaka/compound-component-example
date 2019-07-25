@@ -9,7 +9,7 @@ export class Result extends Component {
   }
 
   getResults = (keyword, currentField) => {
-    return keyword.length > 0 && currentField
+    return keyword && currentField
       ? this.props.items.filter(item => item[currentField].includes(keyword))
       : []
   }

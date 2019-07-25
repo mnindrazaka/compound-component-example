@@ -15,7 +15,7 @@ export class Filter extends Component {
           <label>
             {this.props.label}
             <Select onChange={changeCurrentField} value={currentField}>
-              <option disabled selected>
+              <option disabled value="">
                 Search By
               </option>
               {this.props.fields.map(field => (
