@@ -5,8 +5,7 @@ import { Consumer } from './context'
 
 export class Filter extends Component {
   static propTypes = {
-    keys: PropTypes.arrayOf(PropTypes.string).isRequired,
-    placeholder: PropTypes.string
+    keys: PropTypes.arrayOf(PropTypes.string).isRequired
   }
 
   render() {
@@ -17,7 +16,7 @@ export class Filter extends Component {
             {this.props.label}
             <Select onChange={changeSearchKey} value={searchKey}>
               <option disabled selected>
-                {this.props.placeholder}
+                Search By
               </option>
               {this.props.keys.map(key => (
                 <option>{key}</option>

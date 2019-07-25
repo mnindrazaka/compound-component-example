@@ -1,13 +1,8 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Consumer } from './context'
 
 export class Input extends Component {
-  static propTypes = {
-    placeholder: PropTypes.string
-  }
-
   render() {
     return (
       <Consumer>
@@ -16,7 +11,7 @@ export class Input extends Component {
             type="text"
             value={searchValue}
             onChange={changeSearchValue}
-            placeholder={this.props.placeholder}
+            placeholder="Search Something"
           />
         )}
       </Consumer>
