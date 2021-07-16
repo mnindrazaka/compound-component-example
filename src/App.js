@@ -1,21 +1,24 @@
-import React from 'react'
-import Search from './components/Search'
-import './App.css'
+import React from "react";
+import SearchProvider from "./components/Search/SearchProvider";
+import SearchFieldSelector from "./components/Search/SearchFieldSelector";
+import SearchInput from "./components/Search/SearchInput";
+import SearchResult from "./components/Search/SearchResult";
+import "./App.css";
 
 function App() {
   return (
-    <Search.Container>
-      <Search.Filter fields={['name', 'phone']} />
-      <Search.Input />
-      <Search.Result
+    <SearchProvider>
+      <SearchFieldSelector fields={["name", "phone"]} />
+      <SearchInput />
+      <SearchResult
         items={[
-          { name: 'aka', phone: '085331247098' },
-          { name: 'zaka', phone: '085331247097' },
-          { name: 'nindra', phone: '085331247096' }
+          { name: "aka", phone: "085331247098" },
+          { name: "zaka", phone: "085331247097" },
+          { name: "nindra", phone: "085331247096" },
         ]}
       />
-    </Search.Container>
-  )
+    </SearchProvider>
+  );
 }
 
-export default App
+export default App;
